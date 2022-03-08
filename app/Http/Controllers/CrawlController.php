@@ -15,7 +15,7 @@ class CrawlController extends Controller
         $request->validate(['crwl_url'=>'required|regex:'.$regex]);
         try {
             $url = $request->input('crwl_url');
-            $dom = new \DOMDocument('1.0');
+            $dom = new DOMDocument('1.0');
             $crawler = new \Crawl_Helper($dom);
             @$dom->loadHTMLFile($url);
             $num_of_urls = $crawler->getUrls($url);
